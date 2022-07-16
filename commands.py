@@ -127,7 +127,7 @@ class echo(Command):
 
 class wal(Command):
     def execute(self):
-        os.system('wal -n -i'+str(self.fm.thisfile)+'&& echo "awesome.restart()" | awesome-client >> /dev/null')
+        os.system('wal -n -i'+str(self.fm.thisfile)+'> /dev/null 2>&1 && echo "awesome.restart()" | awesome-client> /dev/null 2>&1')
         self.fm.notify(self.fm.thisfile)
 #        self.fm.run(["wal","-i", self.fm.thisfile])
 
